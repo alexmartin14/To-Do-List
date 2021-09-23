@@ -1,0 +1,58 @@
+<mvc:View
+    controllerName="sap.ui.demo.basicTemplate.controller.ToDoList"
+    xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc">
+
+    	<Table
+		id="toDoList"
+		class="sapUiResponsiveMargin"
+		width="auto"
+		items="{
+			path : 'toDoList>/ToDoList'
+		}">
+		<headerToolbar>
+			<Toolbar>
+				<Title text="{i18n>toDoListTitle}"/>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column
+				minScreenWidth="Small"
+				demandPopin="true">
+				<Text text="{i18n>columnName}"/>
+			</Column>
+			<Column
+                minScreenWidth="Small"
+				demandPopin="true">
+				<Text text="{i18n>columnOwner}"/>
+			</Column>
+			<Column
+				minScreenWidth="Small"
+				demandPopin="true">
+				<Text text="{i18n>columnDate}"/>
+			</Column>
+		</columns>
+        <items>
+			<ColumnListItem>
+				<cells>
+					<Text
+						text="{toDoList>Name}"
+                         />
+					<Text
+						text="{toDoList>Owner}" />
+					<Text
+						text= "{
+                        path: 'toDoList>Date',
+				        type: 'sap.ui.model.type.DateTime',
+				        formatOptions: {
+					        style: 'long',
+                            source: {
+						        pattern: 'dd/MM/yyyy'
+					            },
+                            pattern: 'dd.MM.yyyy'
+				        }}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+    </Table>
+</mvc:View>

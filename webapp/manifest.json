@@ -55,7 +55,12 @@
 				"settings": {
 					"bundleName": "sap.ui.demo.basicTemplate.i18n.i18n"
 				}
+			},
+			"toDoList": {
+				"type": "sap.ui.model.json.JSONModel",
+				"uri": "ToDoList.json"
 			}
+			
 		},
 		"resources": {
 			"css": [{

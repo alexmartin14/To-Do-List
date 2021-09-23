@@ -6,6 +6,8 @@
 	<Page
 		id="page"
 		title="{i18n>title}">
-		<content></content>
+		<content>
+			<mvc:XMLView viewName="sap.ui.demo.basicTemplate.view.ToDoList"/>
+		</content>
 	</Page>
 </mvc:View>
