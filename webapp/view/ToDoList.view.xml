@@ -2,17 +2,43 @@
     controllerName="sap.ui.demo.basicTemplate.controller.ToDoList"
     xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc">
-
     	<Table
 		id="toDoList"
 		class="sapUiResponsiveMargin"
 		width="auto"
+		mode="Delete"
+		delete=".onDelete"
 		items="{
 			path : 'toDoList>/ToDoList'
 		}">
 		<headerToolbar>
 			<Toolbar>
 				<Title text="{i18n>toDoListTitle}"/>
+				<ToolbarSpacer/>
+				<Button
+					id="openEditEntry"
+					text="{i18n>editEntry}"
+					press=".onEditEntry"
+					class="sapUISmallMarginEnd"/>
+				<Button
+					id="openAddEntry"
+					text="{i18n>addEntry}"
+					icon="sap-icon://add"
+					press=".onAddEntry"
+					class="sapUISmallMarginEnd"/>
+				<Button 
+				    id="save" 
+				    text="{i18n>save}" 
+				    type="Emphasized" 
+				    visible="false" 
+				    press="handleSavePress"
+					class="sapUISmallMarginEnd" />
+				<Button 
+				    id="cancel" 
+					text="{i18n>cancel}" 
+					visible="false" 
+					press="handleCancelPress"
+					class="sapUISmallMarginEnd"/>
 			</Toolbar>
 		</headerToolbar>
 		<columns>
@@ -35,15 +61,23 @@
         <items>
 			<ColumnListItem>
 				<cells>
-					<Text
+				<HBox> 
+				    <Input
+						visible="{visModel>/inputVisible}"
+						value="{toDoList>Name}"/>
+					<Text 
+						id="text1"
 						text="{toDoList>Name}"
-                         />
+						visible="{visModel>/textVisible}"
+				        />
+				</HBox>
+					
 					<Text
 						text="{toDoList>Owner}" />
 					<Text
 						text= "{
                         path: 'toDoList>Date',
-				        type: 'sap.ui.model.type.DateTime',
+						type: 'sap.ui.model.type.DateTime',
 				        formatOptions: {
 					        style: 'long',
                             source: {

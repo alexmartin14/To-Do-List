@@ -1,0 +1,35 @@
+<core:FragmentDefinition
+   xmlns:l="sap.ui.layout"
+   xmlns:f="sap.ui.layout.form"
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   <Dialog
+      id="addEntry"
+      title="Add New Entry">
+      <f:SimpleForm
+         maxContainerCols="2"
+         editable="true"
+         layout="Responsive Grid Layout"
+         class="editableForm">
+         <f:content>
+					<Label text="{i18n>columnName}" />
+					<Input value="{inputName}" placeholder="{i18n>nameExample}" id="input_name"/>
+               <Label text="{i18n>columnOwner}" />
+               <Input value="{inputOwner}" placeholder="{i18n>ownerExample}" id="input_owner"/>
+               <Label text="{i18n>columnDate}" />
+               <DatePicker id="input_date">
+
+               </DatePicker>
+					<!-- <Input value="{inputDate}" placeholder="{i18n>dateExample}" id="input_date"/> -->
+            <Label text="" />   
+            <Button
+				   text="{i18n>addEntry}"
+				   press=".addEntry"/>
+			   <Button
+				   text="{i18n>closeAddEntry}"
+				   press=".onCloseEntry"/>
+			</f:content>
+      </f:SimpleForm>    
+       
+   </Dialog>
+</core:FragmentDefinition>
